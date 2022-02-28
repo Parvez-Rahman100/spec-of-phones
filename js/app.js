@@ -9,8 +9,7 @@ const search = () =>{
     .then(data => displaySearchPhones(data.data));
 }
 const displaySearchPhones = (phones) =>{
-    
-    phoneCard.textContent = '';
+    // phoneCard.textContent = '';
     phones.forEach(phone => {
         const phoneCard = document.getElementById('phoneCard');
         // console.log(phone);
@@ -30,6 +29,8 @@ const displaySearchPhones = (phones) =>{
         phoneCard.appendChild(div);
     });
 };
+
+// Phone Details Here 
 const details = (phones) => {
     const url = `https://openapi.programming-hero.com/api/phone/${phones}`;
     fetch(url)
@@ -39,6 +40,7 @@ const details = (phones) => {
 const displayDetails = (details) =>{
     console.log(details);
     const phoneDetailCard = document.getElementById('phoneDetailCard');
+    phoneDetailCard.textContent = '';
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card" style="width: 18rem;">
