@@ -12,7 +12,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header class="container">
+        <h1 class="text-center text-primary my-3">Welcome To Spec Of Phones</h1>
+        <!-- Search input and button here  -->
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="search-input" type="text" class="form-control" placeholder="Enter Your Phone Name" aria-label="Enter Your Phone Name" aria-describedby="button-addon2">
+            <button onclick="search()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+          </div>
+    </header>
+    <main class="container">
+        <div id="phoneDetailCard">
+        </div>
+        <section>
+            <div id="phoneCard" class="row row-cols-1 row-cols-md-3 g-4">
+            </div>
+        </section>
+    </main>
 
 
     <!-- bootstrap js here  -->
