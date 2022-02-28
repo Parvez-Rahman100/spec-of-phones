@@ -10,7 +10,7 @@ const search = () =>{
 }
 const displaySearchPhones = (phones) =>{
     
-    // phoneCard.textContent = '';
+    phoneCard.textContent = '';
     phones.forEach(phone => {
         const phoneCard = document.getElementById('phoneCard');
         // console.log(phone);
@@ -18,7 +18,7 @@ const displaySearchPhones = (phones) =>{
         div.classList.add('col');
         div.innerHTML = `
         <div class="card">
-                 <img width=50% src="${phone.image}" class="card-img-top" alt="...">
+                 <img src="${phone.image}" class="card-img-top w-50"  alt="Phones">
                  <div class="card-body">
                   <h5 class="card-title">${phone.phone_name}</h5>
                   <p class="card-text">${phone.brand}</p>
@@ -28,8 +28,8 @@ const displaySearchPhones = (phones) =>{
               
         `;
         phoneCard.appendChild(div);
-    })
-}
+    });
+};
 const details = (phones) => {
     const url = `https://openapi.programming-hero.com/api/phone/${phones}`;
     fetch(url)
@@ -43,10 +43,22 @@ const displayDetails = (details) =>{
     div.innerHTML = `
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-    <img src="${details.image}" class="card-img-top" alt="...">
+    <img src="${details.image}" class="card-img-top w-50 " alt="Phone">
     <h5 class="card-title">${details.name}</h5>
     <h5>${details.brand}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p>${details.releaseDate ? details.releaseDate : 'Release Date Not Found'}</p>
+    <h6>Main Features</h6>
+    <p>${details.mainFeatures.chipSet}</p>
+    <p>${details.mainFeatures.storage}</p>
+    <p>${details.mainFeatures.displaySize}</p>
+    <p>${details.mainFeatures.memory}</p>
+    <h6>Others</h6>
+    <p>Blutooth :${details.others.Bluetooth}</p>
+    <p>GPS :${details.others.GPS}</p>
+    <p>NFC :${details.others.NFC}</p>
+    <p>Radio :${details.others.Radio}</p>
+    <p>USB :${details.others.USB}</p>
+    <p>WLAN :${details.others.WLAN}</p>
   </div>
 </div>
     `;
