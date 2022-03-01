@@ -6,10 +6,10 @@ const search = () =>{
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res => res.json())
-    .then(data => displaySearchPhones(data.data));
+    .then(data => displaySearchPhones(data.data.slice(0,20)));
 }
 const displaySearchPhones = (phones) =>{
-    // phoneCard.textContent = '';
+    phoneCard.textContent = '';
     phones.forEach(phone => {
         const phoneCard = document.getElementById('phoneCard');
         // console.log(phone);
