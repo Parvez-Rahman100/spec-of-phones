@@ -1,3 +1,7 @@
 #display-error{
     display: none;
+    margin: 20px;
+}
+.card{
+    background-image: linear-gradient(rgba(173, 216, 230, 0.452),rgba(124, 124, 194, 0.233));
 }

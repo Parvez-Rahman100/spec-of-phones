@@ -1,10 +1,11 @@
+const errorMessage = document.getElementById('display-error');
 const search = () =>{
-    const errorMessage = document.getElementById('display-error');
-    // searchInput.value = " ";
-    phoneCard.textContent = '';
-    phoneDetailCard.textContent = '';
     const searchInput = document.getElementById('search-input');
     const searchText = searchInput.value;
+    
+    phoneCard.textContent = '';
+    phoneDetailCard.textContent = '';
+    
     if(searchText == ''){
         errorMessage.style.display = 'block';
     }
@@ -14,41 +15,34 @@ const search = () =>{
         .then(res => res.json())
         .then(data => displaySearchPhones(data.data.slice(0,20)));
     }
-    // console.log(searchText);
-    // searchInput.value = " ";
-
-   
     
 }
+// Display Search Result 
+
 const displaySearchPhones = (phones) =>{
-    const errorMessage = document.getElementById('display-error');
     errorMessage.style.display = 'none';
     if(phones.length == 0 ){
-        console.log('True');
         errorMessage.style.display = 'block';
     }
     phones.forEach(phone => {
         const phoneCard = document.getElementById('phoneCard');
-
-        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="card shadow-lg p-3 mb-5  rounded">
                  <img src="${phone.image}" class="card-img-top w-50 mx-auto"  alt="Phones">
                  <div class="card-body">
                   <h5 class="card-title">${phone.phone_name}</h5>
                   <p class="card-text">${phone.brand}</p>
                 </div>
                 <button onClick="details('${phone.slug}')" class="btn btn-primary w-50 mx-auto">Explore</button>
-              </div>
-              
+              </div>  
         `;
         phoneCard.appendChild(div);
     });
 };
 
-// Phone Details Here 
+//Load Phone Details Here 
 const details = (phones) => {
     const url = `https://openapi.programming-hero.com/api/phone/${phones}`;
     fetch(url)
@@ -56,7 +50,7 @@ const details = (phones) => {
     .then(data => displayDetails(data.data));
 }
 
-// Display Phone Details 
+// Display Phone Details Here
 
 const displayDetails = (details) =>{
     const phoneDetailCard = document.getElementById('phoneDetailCard');
