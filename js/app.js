@@ -59,7 +59,7 @@ const displayDetails = (details) =>{
     div.innerHTML = `
     <div class="card mx-auto my-3 shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
     <div class="card-body">
-    <img src="${details.image}" class="card-img-top w-50 mx-auto" alt="Phone">
+    <img src="${details.image}" class="card-img-top w-50 mx-auto" alt="Phones">
     <h5 class="card-title">${details.name}</h5>
     <h5>${details.brand}</h5>
     <p>${details.releaseDate ? details.releaseDate : 'Release Date Not Found'}</p>
